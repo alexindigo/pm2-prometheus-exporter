@@ -36,8 +36,8 @@ function metrics () {
         name: p.name,
         instance: p.pm2_env.NODE_APP_INSTANCE
       }
-      let loopDelay = p.pm2_env.axm_monitor['Loop delay']
-        ? p.pm2_env.axm_monitor['Loop delay'].value : false
+      let loopDelay = p.pm2_env.axm_monitor['Event Loop Latency']
+        ? p.pm2_env.axm_monitor['Event Loop Latency'].value : false
       let values = {
         up: p.pm2_env.status === 'online' ? 1 : 0,
         cpu: p.monit.cpu,
@@ -75,4 +75,3 @@ function exporter () {
 }
 
 exporter()
-
